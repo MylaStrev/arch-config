@@ -14,7 +14,7 @@ PACKAGES=(
   "btop"
   "github-desktop"
   "starship"
-  "visual-studio-code-bin"
+  "vscodium"
 )
 FLATPAK_PACKAGES=(
   "io.edcd.EDMarketConnector"
@@ -31,7 +31,6 @@ GREEN='\e[0;32m' # for success
 NC='\e[0m' # No Color
 #=========================
 # command calls
-YAY_INT='sudo yay -Sq --needed --noconfirm'
 FP_INT='sudo flatpak install flathub -y --noninteractive'
 #=========================
 echo "## INSTALLING FLATPAK AND YAY..."
@@ -48,7 +47,7 @@ for pkg in "${PACKAGES[@]}"; do
         echo "## $pkg is already installed, skipping..."
     else
         echo "## installing $pkg..."
-        "${YAY_INT}" "${PACKAGES[@]}";
+        yay -S "${PACKAGES[@]}" --needed --noconfirm;
     fi
 done
 
